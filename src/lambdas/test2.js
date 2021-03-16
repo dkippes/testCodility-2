@@ -10,8 +10,8 @@ async function test2 (event, context) {
 	const DocumentClient = new AWS.DynamoDB.DocumentClient();
 
 	// Consigo el token
-	const tokenHeader = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.25d73ffca742.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-	const tokenDecoded = tokenHeader.split('.');
+	const tokenHeader = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.25d73ffca742.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+	const tokenDecoded = tokenHeader.split(' ');
 	const tokenBody = tokenDecoded[1];
 
 
