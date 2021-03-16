@@ -1,0 +1,17 @@
+service: Test 2 - idea
+
+frameworkVersion: ">=1.78.1"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+
+resources:
+  - ${file(resources/tables.yml)}
+
+functions:
+  - ${file(functions.yml)}

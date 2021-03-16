@@ -1,0 +1,6 @@
+test2:
+  handler: src/lambdas/test2.test2
+  events:
+    - http:
+        path: /test2
+        method: get

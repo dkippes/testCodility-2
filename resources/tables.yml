@@ -1,0 +1,47 @@
+Resources:
+  tokenEmailLookUp:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      # Completamente opcional, recordemos que DynamoDB no requiere esquemas
+      AttributeDefinitions:
+        - AttributeName: token
+          AttributeType: S
+        - AttributeName: email
+          AttributeType: S
+      # Necesario para definir indice principal
+      # Como si fuera una base de datos normal, este seria nuestro primary key
+      KeySchema:
+        - AttributeName: token
+          KeyType: HASH
+      # Configuramos la capacidad de lectura/escritura de la tabla
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      # Si tuvieramos nombres dinamicos (por ejemplo, segun ambiente, lo podemos configurar aca)
+      TableName: token-email-lookup
+
+userNotes:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      # Completamente opcional, recordemos que DynamoDB no requiere esquemas
+      AttributeDefinitions:
+        - AttributeName: user
+          AttributeType: S
+        - AttributeName: text
+          AttributeType: S
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: create_date
+          AttributeType: S
+      # Necesario para definir indice principal
+      # Como si fuera una base de datos normal, este seria nuestro primary key
+      KeySchema:
+        - AttributeName: user
+          KeyType: HASH
+      # Configuramos la capacidad de lectura/escritura de la tabla
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      # Si tuvieramos nombres dinamicos (por ejemplo, segun ambiente, lo podemos configurar aca)
+      TableName: user-notes
+
